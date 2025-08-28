@@ -22,4 +22,4 @@ jobs:
 
     - name: Exécution
       run : |
-        docker compose up compose.yml -d
+        docker compose up -d
