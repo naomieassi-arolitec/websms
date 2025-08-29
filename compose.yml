@@ -68,7 +68,7 @@ services:
       retries: 3
 
   websms-minio:
-    image: bitnami/minio:latest
+    image: elestio/minio:latest
     container_name: websms-minio
     restart: on-failure
     ports:
