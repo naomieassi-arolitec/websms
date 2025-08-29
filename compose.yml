@@ -3,6 +3,7 @@ services:
     image: arolitec/websms:latest
     container_name: websms
     env_file:
+      - .env
       - .env.websms-app
       - .env.websms-db
     ports:
@@ -30,6 +31,7 @@ services:
     image: postgres:16-alpine
     container_name: websms-db
     env_file:
+      - .env
       - .env.websms-db
     restart: on-failure
     volumes:
@@ -73,6 +75,7 @@ services:
       - "9000:9000"
       - "9001:9001"
     env_file:
+      - .env
       - .env.websms-minio
       - .env.websms-db
     volumes:
