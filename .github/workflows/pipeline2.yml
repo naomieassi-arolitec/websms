@@ -30,4 +30,5 @@ jobs:
         cd /opt
         git clone https://github.com/naomieassi-arolitec/websms.git
         echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+        docker compose down
         docker compose -f /opt/websms/compose.yml up -d"
