@@ -25,7 +25,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
      
     - name: Exécution
-      run : |
+      run : |    
        ssh rocky@192.168.1.67 "
-        echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login arolitec/websms -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
+        echo "${{ secrets.DOCKERHUB_TOKEN }}" | docker login -u ${{ secrets.DOCKERHUB_USERNAME }} --password-stdin
         docker compose -f /home/rocky/websms/compose.yml up -d"
