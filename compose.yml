@@ -3,9 +3,7 @@ services:
     image: arolitec/websms:latest
     container_name: websms
     env_file:
-      - .env
       - .env.websms-app
-      - .env.websms-db
     ports:
       - "3000:3000"
     restart: always
