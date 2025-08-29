@@ -89,7 +89,7 @@ services:
           "-I",
           "--silent",
           "--fail",
-          "http://192.168.1.141:9000/minio/health/live",
+          "http://192.168.1.67:9000/minio/health/live",
         ]
       interval: 10s
       timeout: 5s
