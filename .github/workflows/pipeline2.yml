@@ -19,25 +19,15 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-    - name: Connexion ssh au serveur distant
-      uses: saranraj3195/sparkout-deployment@v2
+    - name: Setup SSH
+      uses: webfactory/ssh-agent@v0.9.0
       with:
-        # SSH private key for authentication
-        DEPLOY_KEY: ${{ secrets.DEPLOY_KEY }}
-        # SSH username
-        USERNAME: ${{ secrets.USERNAME }}
-        # IP address of the server
-        SERVER_IP: ${{ secrets.SERVER_IP }}
-        # SSH port of the server
-        SERVER_PORT: ${{ secrets.SERVER_PORT }}
-        # Destination directory on the server
-        SERVER_DESTINATION: /opt/websms-app
-        # Folder to deploy
-        FOLDER: /opt/websms-app
+        ssh-private-key: ${{ secrets.SSH_KEY }}
      
     - name: Exécution
       run : |
+       ssh rocky@192.168.1.67 "
         git clone https://github.com/naomieassi-arolitec/websms.git
         docker compose pull 
         docker compose down
-        docker compose up -d
+        docker compose up -d"
