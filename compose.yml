@@ -110,6 +110,9 @@ services:
       retries: 3
     ports:
       - "8108:8108"
+    env_file:
+      - .env
+      - .env.websms-minio
     volumes:
       - websms-typesense:/data
     command: "--data-dir /data --api-key=f85bea380ae6487a13367eb873c39c88f16d6f638125ac8a98e18d073b4cf3cc --enable-cors"
