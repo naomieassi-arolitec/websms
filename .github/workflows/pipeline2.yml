@@ -27,5 +27,4 @@ jobs:
     - name: Exécution
       run : |
        ssh rocky@192.168.1.67 "
-        git clone https://github.com/naomieassi-arolitec/websms.git
-        docker compose -f /home/rocky/websms compose.yml up -d"
+        docker compose -f /home/rocky/websms up -d"
